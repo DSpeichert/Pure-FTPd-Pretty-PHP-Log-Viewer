@@ -1,4 +1,9 @@
 <?php
+
+	$logPath = '/var/log/pure-ftpd/transfer.log';
+	$ftpAccountsPath = '/home/ftp-accounts/';
+	$refreshRate = 10; // Refreshes the page every Nth seconds
+	
 	function human_filesize($bytes, $decimals = 2) {
 		$sz = 'BKMGTP';
 		$factor = floor((strlen($bytes) - 1) / 3);
@@ -49,7 +54,7 @@
 		);
 	}
 
-	$logData = (string)@file_get_contents('/var/log/pure-ftpd/transfer.log');
+	$logData = (string)@file_get_contents($logPath);
 	$logData = array_reverse(explode("\n", $logData));
 ?>
 <!DOCTYPE html>
