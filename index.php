@@ -54,7 +54,8 @@
 		);
 	}
 
-	$logData = (string)@file_get_contents($logPath);
+	$logData = (string)@file_get_contents($logPath.'.1');
+	$logData .= (string)@file_get_contents($logPath);
 	$logData = array_reverse(explode("\n", $logData));
 ?>
 <!DOCTYPE html>
